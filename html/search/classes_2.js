@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['prescalemanager',['PrescaleManager',['../classSmart_1_1PrescaleManager.html',1,'Smart']]]
+  ['numericcorrelationid',['NumericCorrelationId',['../classSmart_1_1NumericCorrelationId.html',1,'Smart']]]
 ];

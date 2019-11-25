@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['shutdownsubject',['ShutdownSubject',['../classSmart_1_1ShutdownSubject.html',1,'Smart']]]
+  ['queryservertasktrigger',['QueryServerTaskTrigger',['../classSmart_1_1QueryServerTaskTrigger.html',1,'Smart']]]
 ];
