@@ -90,6 +90,12 @@ protected:
 		trigger_cond_var.notify_all();
 	}
 
+	virtual void resetTrigger() {
+		std::unique_lock<std::mutex> lock(observer_mutex);
+		signalled = false;
+		trigger_cancelled = false;
+	}
+
 public:
 	TaskTriggerObserver(TaskTriggerSubject *subject, const unsigned int &prescaleFactor=1);
 	virtual ~TaskTriggerObserver();
@@ -102,6 +108,9 @@ public:
 		} else {
 			if(signalled == false) {
 				trigger_cond_var.wait(lock);
+				if(trigger_cancelled == true) {
+					return SMART_CANCELLED;
+				}
 			}
 			signalled = false;
 			return SMART_OK;
@@ -117,6 +126,8 @@ public:
 			if(signalled == false) {
 				if(trigger_cond_var.wait_for(lock, timeout)==std::cv_status::timeout) {
 					return SMART_TIMEOUT;
+				} else if(trigger_cancelled == true) {
+					return SMART_CANCELLED;
 				}
 			}
 			signalled = false;

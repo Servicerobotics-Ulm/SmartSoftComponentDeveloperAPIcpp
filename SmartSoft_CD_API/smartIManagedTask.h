@@ -51,7 +51,6 @@
 
 #include "smartTaskTriggerObserver.h"
 
-
 namespace Smart {
 
 class IManagedTask
@@ -59,13 +58,13 @@ class IManagedTask
 ,	public TaskTriggerObserver
 {
 protected:
-	virtual void on_shutdown() {
-		this->stop(false);
+	virtual void on_shutdown() override
+	{
 		this->cancelTrigger();
-		this->stop(true);
+		this->stop();
 	}
 
-	virtual int task_execution()
+	virtual int task_execution() override
 	{
 		bool stop = false;
 

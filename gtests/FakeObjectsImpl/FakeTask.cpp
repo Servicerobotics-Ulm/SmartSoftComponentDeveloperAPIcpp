@@ -8,6 +8,7 @@
 #include "FakeTask.h"
 
 #include <thread>
+#include <iostream>
 
 namespace Fake {
 

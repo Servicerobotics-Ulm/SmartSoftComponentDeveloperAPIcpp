@@ -84,6 +84,12 @@ using CorrelationIdPtr = std::shared_ptr<ICorrelationId>;
 
 } /* namespace Smart */
 
+inline bool operator==(const Smart::CorrelationIdPtr &left, const Smart::CorrelationIdPtr &right)
+{
+	if(left && right) return *left == *right;
+	return false;
+}
+
 // the pointer content can be printed out to ostream
 inline std::ostream& operator<<(std::ostream& out, const Smart::CorrelationIdPtr& cid)
 {

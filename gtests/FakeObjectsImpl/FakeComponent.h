@@ -46,6 +46,7 @@
 #include <mutex>
 #include <memory>
 #include <condition_variable>
+#include <iostream>
 
 #include <smartIComponent.h>
 #include "FakeNamingService.h"

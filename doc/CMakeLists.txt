@@ -10,9 +10,10 @@ CONFIGURE_FILE(${PROJECT_SOURCE_DIR}/SmartSoft-API-Reference.doxyfile.in ${PROJE
 CONFIGURE_FILE(${PROJECT_SOURCE_DIR}/DoxygenLayout.xml ${PROJECT_BINARY_DIR}/DoxygenLayout.xml COPYONLY)
 CONFIGURE_FILE(${PROJECT_SOURCE_DIR}/mainpage.dox ${PROJECT_BINARY_DIR}/mainpage.dox COPYONLY)
 # run doxygen in build/doc folder
-ADD_CUSTOM_TARGET(doc
+ADD_CUSTOM_TARGET(doc ALL
 	COMMAND ${DOXYGEN_EXECUTABLE} ${PROJECT_BINARY_DIR}/SmartSoft-API-Reference.doxyfile
 	WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
 	COMMENT "Generating SmartSoft Component-Developer API documentation with Doxygen" VERBATIM
 )
+INSTALL(DIRECTORY ${PROJECT_BINARY_DIR}/html DESTINATION share/doc/smartsoft-api)
 ENDIF(DOXYGEN_FOUND)
