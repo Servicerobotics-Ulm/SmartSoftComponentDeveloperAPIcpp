@@ -112,6 +112,10 @@ public:
 					return SMART_CANCELLED;
 				}
 			}
+			if(trigger_cancelled)
+			{
+				return SMART_CANCELLED;
+			}
 			signalled = false;
 			return SMART_OK;
 		}
@@ -129,6 +133,10 @@ public:
 				} else if(trigger_cancelled == true) {
 					return SMART_CANCELLED;
 				}
+			}
+			if(trigger_cancelled)
+			{
+				return SMART_CANCELLED;
 			}
 			signalled = false;
 			return SMART_OK;
